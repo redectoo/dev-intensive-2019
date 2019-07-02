@@ -194,49 +194,9 @@ object Utils {
     }
 
 
-       // var strokeFirst: String?
-       // var strokeTwo: String?
 
 
 
-
-        //if (firstName == null) {
-            //strokeFirst = null
-        //} else if (firstName.isBlank()) {
-           // strokeFirst = ""
-       //} else {
-            //strokeFirst = firstName.trim1(' ').get(0).toUpperCase().toString()
-
-        //}
-
-        //if (lastName == null) {
-            //strokeTwo = null
-       // } else if (lastName.isBlank()) {
-           // strokeTwo = ""
-        //} else {
-
-           // strokeTwo = lastName.trim1(' ').get(0).toUpperCase().toString()
-
-
-       // }
-
-
-
-       // if ((strokeFirst == null && strokeTwo == null) || (strokeFirst == "" && strokeTwo == "")) {
-            //return null
-       // }
-
-       // var one:String?
-       // var two:String?
-
-        //(strokeFirst==null)""
-
-
-        //else if () {
-           // return "${if (strokeFirst != ""||strokeFirst!=null) strokeFirst else ""}${if (strokeTwo != null) strokeTwo else ""}"
-        //}
-
-  //  }
 
 
 }
