@@ -84,7 +84,7 @@ object Utils {
 
                     'ш' -> stringBuilder.append("sh")
 
-                    'щ' -> stringBuilder.append("sh")
+                    'щ' -> stringBuilder.append("sh'")
 
                     'ъ' -> stringBuilder.append("")
 
