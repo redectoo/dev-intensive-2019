@@ -168,7 +168,7 @@ object Utils {
 
                 }
             }
-            return stringBuilder.toString()
+            return stringBuilder.toString().trim1(' ')
         }
 
 
@@ -185,40 +185,58 @@ object Utils {
     fun toInitials(firstName: String?, lastName: String?): String? {
 
 
-        var strokeFirst: String?
-        var strokeTwo: String?
 
+        val name=firstName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString()?: ""
+        val family=lastName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString()?: ""
 
-
-
-        if (firstName == null) {
-            strokeFirst = null
-        } else if (firstName.isBlank()) {
-            strokeFirst = ""
-        } else {
-            strokeFirst = firstName.trim1(' ').get(0).toUpperCase().toString()
-
-        }
-
-        if (lastName == null) {
-            strokeTwo = null
-        } else if (lastName.isBlank()) {
-            strokeTwo = ""
-        } else {
-
-            strokeTwo = lastName.trim1(' ').get(0).toUpperCase().toString()
-
-
-        }
-
-
-        if ((strokeFirst == null && strokeTwo == null) || (strokeFirst == "" && strokeTwo == "")) {
-            return null
-        } else {
-            return "${if (strokeFirst != "") strokeFirst else ""}${if (strokeTwo != null) strokeTwo else ""}"
-        }
+        return "$name$family".ifEmpty { null }
 
     }
+
+
+       // var strokeFirst: String?
+       // var strokeTwo: String?
+
+
+
+
+        //if (firstName == null) {
+            //strokeFirst = null
+        //} else if (firstName.isBlank()) {
+           // strokeFirst = ""
+       //} else {
+            //strokeFirst = firstName.trim1(' ').get(0).toUpperCase().toString()
+
+        //}
+
+        //if (lastName == null) {
+            //strokeTwo = null
+       // } else if (lastName.isBlank()) {
+           // strokeTwo = ""
+        //} else {
+
+           // strokeTwo = lastName.trim1(' ').get(0).toUpperCase().toString()
+
+
+       // }
+
+
+
+       // if ((strokeFirst == null && strokeTwo == null) || (strokeFirst == "" && strokeTwo == "")) {
+            //return null
+       // }
+
+       // var one:String?
+       // var two:String?
+
+        //(strokeFirst==null)""
+
+
+        //else if () {
+           // return "${if (strokeFirst != ""||strokeFirst!=null) strokeFirst else ""}${if (strokeTwo != null) strokeTwo else ""}"
+        //}
+
+  //  }
 
 
 }
