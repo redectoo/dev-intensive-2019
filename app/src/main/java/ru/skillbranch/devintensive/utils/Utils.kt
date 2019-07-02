@@ -168,7 +168,7 @@ object Utils {
 
                 }
             }
-            return stringBuilder.toString().trim1(' ')
+            return stringBuilder.toString()
         }
 
 
@@ -178,7 +178,7 @@ object Utils {
         val strokeTwo = check_translite(lastName)
 
 
-        return strokeFirst + divider + strokeTwo
+        return (strokeFirst + divider + strokeTwo).trim1(' ')
     }
 
 
