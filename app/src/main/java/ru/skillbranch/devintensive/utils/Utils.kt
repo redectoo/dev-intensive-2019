@@ -17,186 +17,72 @@ object Utils {
         return firstName to lastName
 
 
-
     }
-
-
-
 
 
     fun transliteration(payload: String, divider: String = " "): String {
 
-
-
-        fun check_translite(variable: String?): String {
-            var stringBuilder = StringBuilder("")
-            variable?.forEach {
-                when (it) {
-                    'а' -> stringBuilder.append("a")
-
-                    'б' -> stringBuilder.append("b")
-
-                    'в' -> stringBuilder.append("v")
-
-                    'г' -> stringBuilder.append("g")
-
-                    'д' -> stringBuilder.append("d")
-
-                    'е' -> stringBuilder.append("e")
-
-                    'ё' -> stringBuilder.append("e")
-
-                    'ж' -> stringBuilder.append("zh")
-
-                    'з' -> stringBuilder.append("z")
-
-                    'и' -> stringBuilder.append("i")
-
-                    'й' -> stringBuilder.append("i")
-
-                    'к' -> stringBuilder.append("k")
-
-                    'л' -> stringBuilder.append("l")
-
-                    'м' -> stringBuilder.append("m")
-
-                    'н' -> stringBuilder.append("n")
-
-                    'о' -> stringBuilder.append("o")
-
-                    'п' -> stringBuilder.append("p")
-
-                    'р' -> stringBuilder.append("r")
-
-                    'с' -> stringBuilder.append("s")
-
-                    'т' -> stringBuilder.append("t")
-
-                    'у' -> stringBuilder.append("u")
-
-                    'ф' -> stringBuilder.append("f")
-
-                    'х' -> stringBuilder.append("h")
-
-                    'ц' -> stringBuilder.append("c")
-
-                    'ч' -> stringBuilder.append("ch")
-
-                    'ш' -> stringBuilder.append("sh")
-
-                    'щ' -> stringBuilder.append("sh'")
-
-                    'ъ' -> stringBuilder.append("")
-
-                    'ы' -> stringBuilder.append("i")
-
-                    'ь' -> stringBuilder.append("")
-
-                    'э' -> stringBuilder.append("e")
-
-                    'ю' -> stringBuilder.append("yu")
-
-                    'я' -> stringBuilder.append("ya")
-
-                    'А' -> stringBuilder.append("A")
-
-                    'Б' -> stringBuilder.append("B")
-
-                    'В' -> stringBuilder.append("V")
-
-                    'Г' -> stringBuilder.append("G")
-
-                    'Д' -> stringBuilder.append("D")
-
-                    'Е' -> stringBuilder.append("E")
-
-                    'Ё' -> stringBuilder.append("E")
-
-                    'Ж' -> stringBuilder.append("Zh")
-
-                    'З' -> stringBuilder.append("Z")
-
-                    'И' -> stringBuilder.append("I")
-
-                    'Й' -> stringBuilder.append("I")
-
-                    'К' -> stringBuilder.append("K")
-
-                    'Л' -> stringBuilder.append("L")
-
-                    'М' -> stringBuilder.append("M")
-
-                    'Н' -> stringBuilder.append("N")
-
-                    'О' -> stringBuilder.append("O")
-
-                    'П' -> stringBuilder.append("P")
-
-                    'Р' -> stringBuilder.append("R")
-
-                    'С' -> stringBuilder.append("S")
-
-                    'Т' -> stringBuilder.append("T")
-
-                    'У' -> stringBuilder.append("U")
-
-                    'Ф' -> stringBuilder.append("F")
-
-                    'Х' -> stringBuilder.append("H")
-
-                    'Ц' -> stringBuilder.append("C")
-
-                    'Ч' -> stringBuilder.append("Ch")
-
-                    'Ш' -> stringBuilder.append("Sh")
-
-                    'Щ' -> stringBuilder.append("Sh")
-
-                    'Ъ' -> stringBuilder.append("")
-
-                    'Ы' -> stringBuilder.append("I")
-
-                    'Ь' -> stringBuilder.append("")
-
-                    'Э' -> stringBuilder.append("E")
-
-                    'Ю' -> stringBuilder.append("Yu")
-
-                    'Я' -> stringBuilder.append("Ya")
-                    else -> stringBuilder.append(it)
-
-
-                }
+        val map = mapOf(
+            'а' to "a",
+            'б' to "b",
+            'в' to "v",
+            'г' to "g",
+            'д' to "d",
+            'е' to "e",
+            'ё' to "e",
+            'ж' to "zh",
+            'з' to "z",
+            'и' to "i",
+            'й' to "i",
+            'к' to "k",
+            'л' to "l",
+            'м' to "m",
+            'н' to "n",
+            'о' to "o",
+            'п' to "p",
+            'р' to "r",
+            'с' to "s",
+            'т' to "t",
+            'у' to "u",
+            'ф' to "f",
+            'х' to "h",
+            'ц' to "c",
+            'ч' to "ch",
+            'ш' to "sh",
+            'щ' to "sh",
+            'ъ' to "",
+            'ы' to "i",
+            'ь' to "",
+            'э' to "e",
+            'ю' to "yu",
+            'я' to "ya"
+        )
+
+        val stroke = buildString {
+            payload.forEach {
+                append(
+                    when {
+                        it == ' ' -> divider
+                        it.isUpperCase() -> map[it.toLowerCase()]?.capitalize() ?: it.toString()
+                        else -> map[it] ?: it.toString()
+                    }
+                )
             }
-            return stringBuilder.toString().trim1(' ')
         }
 
-
-        val (firstName, lastName) = parseFullName(payload)
-
-        val strokeFirst = check_translite(firstName)
-        val strokeTwo = check_translite(lastName)
-
-val fn=if(strokeFirst=="" || strokeTwo=="")"" else divider
-        return (strokeFirst +  fn + strokeTwo).trim1(' ')
+        return stroke
     }
 
 
     fun toInitials(firstName: String?, lastName: String?): String? {
 
 
-
-        val name=firstName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString()?: ""
-        val family=lastName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString()?: ""
+        val name = firstName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString() ?: ""
+        val family = lastName?.trim1(' ')?.getOrNull(0)?.toUpperCase()?.toString() ?: ""
 
         return "$name$family".ifEmpty { null }
 
     }
-
-
-
-
-
 
 
 }
