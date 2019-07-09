@@ -145,6 +145,14 @@ enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    fun plural():String{
+        return "ups"
+
+    }
+
+
+
 
 }
