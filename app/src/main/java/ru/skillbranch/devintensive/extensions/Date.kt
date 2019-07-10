@@ -142,8 +142,8 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 
 
 enum class TimeUnits(val One:String, val Two:String,val Zero:String) {
-    SECOND("секунда","секунды","секунд"),
-    MINUTE("минута","минуты","минут"),
+    SECOND("секунду","секунды","секунд"),
+    MINUTE("минуту","минуты","минут"),
     HOUR("час","часа","часов"),
     DAY("день","дня","дней");
 
