@@ -141,14 +141,14 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 }
 
 
-enum class TimeUnits {
-    SECOND,
-    MINUTE,
-    HOUR,
-    DAY;
+enum class TimeUnits(val One:String, val Two:String,val Zero:String) {
+    SECOND("секунда","секунды","секунд"),
+    MINUTE("минута","минуты","минут"),
+    HOUR("час","часа","часов"),
+    DAY("день","дня","дней");
 
-    fun plural():String{
-        return "ups"
+    fun plural(value:Int):String{
+        return "$value ${if (Math.abs(value%10)==1)One else if(Math.abs(value%10) in 2..4)Two else Zero}"
 
     }
 
