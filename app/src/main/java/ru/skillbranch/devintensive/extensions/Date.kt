@@ -147,6 +147,7 @@ enum class TimeUnits(val One:String, val Two:String,val Zero:String) {
     HOUR("час","часа","часов"),
     DAY("день","дня","дней");
 
+
     fun plural(value:Int):String{
         return "$value ${if (Math.abs(value%10)==0|| (Math.abs(value%100) in 11..19)||(Math.abs(value%10) in 5..9)) Zero
         else if(Math.abs(value%10) in 2..4)Two else One}"
