@@ -37,7 +37,7 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 fun Date.humanizeDiff(date: Date = Date()): String {
     val raznica = (date.time - this.time) / 1000
 
-    var stroke: String="Здесь ничиго нет"
+    var stroke: String = "Здесь ничиго нет"
 
 
 
@@ -84,7 +84,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
 
         stroke = if (N % 10 == 1) "$N день назад" else if ((N % 10) in 2..4) "$N дня назад" else "$N дней назад"
 
-    } else if(raznica>=86400) {
+    } else if (raznica >= 86400) {
         stroke = "более года назад"
     } else if (raznica in -1 until 0) {   //Начало будущего
         stroke = "секунду до"
@@ -92,43 +92,43 @@ fun Date.humanizeDiff(date: Date = Date()): String {
         stroke = "через несколько секунд назад"
     } else if (raznica in -75 until -45) {
         stroke = "через минуту"
-    } else if (raznica in -2700 until -75 ) {
+    } else if (raznica in -2700 until -75) {
 
-        val numberWithOutOne = ((-1)*raznica / 60).toInt()
+        val numberWithOutOne = ((-1) * raznica / 60).toInt()
         val numberOne = numberWithOutOne + 1
 
 
-        val N = if ((-1)*raznica % 60 > 0) numberOne else numberWithOutOne
+        val N = if ((-1) * raznica % 60 > 0) numberOne else numberWithOutOne
 
         stroke = if (N % 10 == 1) "через $N минуту" else if ((N % 10) in 2..4) "через $N минуты" else "через $N минут"
 
 
-    } else if (raznica in -4500 until -2700 ) {
+    } else if (raznica in -4500 until -2700) {
         stroke = "через час"
     } else if (raznica in -79200 until -4500) {
 
 
-        val numberWithOutOne = ((-1)*raznica / 3600).toInt()
+        val numberWithOutOne = ((-1) * raznica / 3600).toInt()
         val numberOne = numberWithOutOne + 1
 
 
-        val N = if ((-1)*raznica % 3600 > 0) numberOne else numberWithOutOne
+        val N = if ((-1) * raznica % 3600 > 0) numberOne else numberWithOutOne
 
         stroke = if (N % 10 == 1) "через $N час" else if ((N % 10) in 2..4) "через $N часа" else "через $N часов"
 
-    } else if (raznica in -93600 until -79200 ) {
+    } else if (raznica in -93600 until -79200) {
         stroke = "через день"
-    } else if (raznica in -31104000 until -93600 ) {
+    } else if (raznica in -31104000 until -93600) {
 
-        val numberWithOutOne = ((-1)*raznica / 86400).toInt()
+        val numberWithOutOne = ((-1) * raznica / 86400).toInt()
         val numberOne = numberWithOutOne + 1
 
 
-        val N = if ((-1)*raznica % 86400 > 0) numberOne else numberWithOutOne
+        val N = if ((-1) * raznica % 86400 > 0) numberOne else numberWithOutOne
 
         stroke = if (N % 10 == 1) "через $N день" else if ((N % 10) in 2..4) "через $N дня" else "через $N дней"
 
-    } else if(raznica<=-86400) {
+    } else if (raznica <= -86400) {
         stroke = "более чем через год"
     }
 
@@ -158,3 +158,4 @@ enum class TimeUnits(val One:String, val Two:String,val Zero:String) {
 
 
 }
+

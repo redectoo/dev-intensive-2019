@@ -23,6 +23,3 @@ fun String.truncate(number: Int =16):String{
 
 
 fun String.stripHtml()= Jsoup.parse(this).text()
-
-
-
