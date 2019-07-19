@@ -2,6 +2,7 @@ package ru.skillbranch.devintensive.extensions
 
 
 
+
 fun String.truncate(number: Int =16):String{
     var value:String
 
