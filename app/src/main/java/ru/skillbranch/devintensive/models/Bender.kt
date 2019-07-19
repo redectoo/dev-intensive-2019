@@ -15,7 +15,9 @@ class Bender(var status:Status=Status.NORMAL, var question: Question=Question.NA
 
         return if(question.answers.contains(answer)){
             question=question.nextQuestion()
+
             "Отлично - ты справился\n${question.question}" to status.color
+
         }else{
             status=status.nextStatus()
 
@@ -62,7 +64,7 @@ class Bender(var status:Status=Status.NORMAL, var question: Question=Question.NA
         MATERIAL("Из чего я сделан?",listOf("металл","дерево","metal","iron","wood")){
             override fun nextQuestion(): Question=BDAY
         },
-        BDAY("Когда меня создали",listOf("2993")){
+        BDAY("Когда меня создали?",listOf("2993")){
 
             override fun nextQuestion(): Question=SERIAL
         },
