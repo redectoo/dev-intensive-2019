@@ -1,6 +1,6 @@
 package ru.skillbranch.devintensive.extensions
 
-import org.jsoup.Jsoup
+
 
 fun String.truncate(number: Int =16):String{
     var value:String
@@ -22,4 +22,4 @@ fun String.truncate(number: Int =16):String{
 }
 
 
-fun String.stripHtml()= Jsoup.parse(this).text()
+//fun String.stripHtml()= Jsoup.parse(this).text()
