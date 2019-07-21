@@ -16,6 +16,13 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.skillbranch.devintensive.extensions.hideKeyboard
 import ru.skillbranch.devintensive.models.Bender
+import android.R.attr.bottom
+import android.graphics.Rect
+import android.util.DisplayMetrics
+import androidx.fragment.app.FragmentActivity
+import ru.skillbranch.devintensive.extensions.isKeyboardClosed
+import ru.skillbranch.devintensive.extensions.isKeyboardOpen
+
 
 class MainActivity : AppCompatActivity() , View.OnClickListener{
     lateinit var benderImage:ImageView
@@ -35,6 +42,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         textTxt=tv_text
         messageEt=et_message
         sendBtn=iv_send
+
 
        // messageEt.setImeOptions(EditorInfo.IME_ACTION_DONE);
        // messageEt.singleLine(true)
@@ -71,6 +79,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
                 false
             }
         }
+
+
+        Log.d("M_MainActivity","Клавиатура показана ${this.isKeyboardOpen()}")
+
+
+        Log.d("M_MainActivity","Клавиатура скрыта ${this.isKeyboardClosed()}")
 
 
     }
@@ -133,6 +147,9 @@ fun messageForBender(){
     textTxt.text=phrase
 
 }
+
+
+
 
 
 
