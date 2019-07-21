@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
                 messageForBender()
 
-                hideKeyboard(this)
+                this.hideKeyboard()
 
 
 
