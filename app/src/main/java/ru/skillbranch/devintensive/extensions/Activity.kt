@@ -4,6 +4,14 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import  android.app.Activity
 import android.graphics.Rect
+import android.view.ViewGroup
+import android.R.attr.top
+import android.R.attr.bottom
+import android.opengl.ETC1.getHeight
+
+
+
+
 
 fun Activity.hideKeyboard() {
     val imm = this.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -14,6 +22,9 @@ fun Activity.hideKeyboard() {
     }
     imm.hideSoftInputFromWindow(view.windowToken, 0)
 }
+
+
+
 
 fun Activity.isKeyboardClosed():Boolean{
     val decorView = this.window.decorView
@@ -27,7 +38,7 @@ fun Activity.isKeyboardClosed():Boolean{
     if(displayHight.toDouble() / hight > 0.8){
         return true
     }
-        return false
+    return false
 
 
 

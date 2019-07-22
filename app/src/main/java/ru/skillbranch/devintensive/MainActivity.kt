@@ -70,7 +70,14 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
 
                 messageForBender()
 
+                //Log.d("M_MainActivity","Клавиатура показана ${this.isKeyboardOpen()}")
+
+
+               // Log.d("M_MainActivity","Клавиатура скрыта ${this.isKeyboardClosed()}")
+
                 this.hideKeyboard()
+
+
 
 
 
@@ -81,10 +88,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
         }
 
 
-        Log.d("M_MainActivity","Клавиатура показана ${this.isKeyboardOpen()}")
 
-
-        Log.d("M_MainActivity","Клавиатура скрыта ${this.isKeyboardClosed()}")
 
 
     }
@@ -98,6 +102,12 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     override fun onStart() {
         super.onStart()
         Log.d("M_MainActivity","onStart")
+
+
+        Log.d("M_MainActivity","Клавиатура показана2 ${this.isKeyboardOpen()}")
+
+
+        Log.d("M_MainActivity","Клавиатура скрыта2 ${this.isKeyboardClosed()}")
     }
 
     override fun onResume() {
@@ -140,7 +150,7 @@ class MainActivity : AppCompatActivity() , View.OnClickListener{
     }
 
 fun messageForBender(){
-    val (phrase, color)=benderObj.listenAnswer(messageEt.text.toString().toLowerCase())
+    val (phrase, color)=benderObj.listenAnswer(messageEt.text.toString())
     messageEt.setText("")
     val (r,g,b)=color
     benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
